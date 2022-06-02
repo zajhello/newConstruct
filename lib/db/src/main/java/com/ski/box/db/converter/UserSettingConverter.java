@@ -12,6 +12,7 @@ public class UserSettingConverter implements PropertyConverter<UserCurrResp.User
 
         return GsonUtils.fromJson(databaseValue, UserCurrResp.UserSettingBean.class);
     }
+    
 
     @Override
     public String convertToDatabaseValue(UserCurrResp.UserSettingBean entityProperty) {
