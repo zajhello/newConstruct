@@ -1,0 +1,103 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    compileSdk rootProject.ext.android.compileSdkVersion
+
+    defaultConfig {
+        applicationId rootProject.ext.android.applicationId
+        minSdk rootProject.ext.android.minSdkVersion
+        targetSdk rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    signingConfigs {
+        config {
+            //加载资源
+            Properties properties = new Properties()
+            InputStream inputStream = project.rootProject.file('sign/keystore.properties').newDataInputStream()
+            properties.load(inputStream)
+
+            //读取文件
+            def sdkDir = properties.getProperty('keystore')
+
+            //读取字段
+            def key_keyAlias = properties.getProperty('keyAlias')
+            def key_keyPassword = properties.getProperty('keyPassword')
+            def key_storePassword = properties.getProperty('storePassword')
+
+            storeFile file(sdkDir)
+            storePassword key_storePassword
+            keyAlias key_keyAlias
+            keyPassword key_keyPassword
+        }
+    }
+
+    buildTypes {
+        debug {
+            // 不开启混淆
+            minifyEnabled false
+            // 不开启ZipAlign优化
+            zipAlignEnabled false
+            // 不移除无用的resource文件
+            shrinkResources false
+            // 使用config签名
+            signingConfig signingConfigs.config
+            // 混淆文件位置
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        release {
+            // 开启混淆
+            minifyEnabled true
+            // 开启ZipAlign优化
+            zipAlignEnabled true
+            // 移除无用的resource文件
+            shrinkResources true
+            // 使用config签名
+            signingConfig signingConfigs.config
+            // 混淆文件位置
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            // 批量打包
+            applicationVariants.all { variant ->
+                variant.outputs.all { output ->
+                    //输出apk名称为：渠道名_版本名_时间.apk
+//                    outputFileName = "${variant.productFlavors[0].name}_${defaultConfig.versionName}.apk"
+                    outputFileName = "${variant.productFlavors[0].name}_${variant.productFlavors[0].versionName}.apk"
+                }
+            }
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    flavorDimensions rootProject.ext.android.applicationId
+
+    productFlavors {
+        tn_toh {
+            applicationIdSuffix ".tn_toh"
+            resValue "string", "splash_type", "close"
+            resValue "string", "pre_lang", "cna"
+            versionCode 29
+            versionName "1.0.0"
+        }
+    }
+}
+
+dependencies {
+
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    api rootProject.ext.androidx["androidx_multidex"]
+
+    implementation project(path: ':lib:account')
+}

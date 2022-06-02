@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<string name="lib_httpclient_male">male</string>
+	<string name="lib_httpclient_female">female</string>
+	<string name="lib_httpclient_secrecy">secrecy</string>
+	<string name="lib_httpclient_China_Mobile">China Mobile</string>
+	<string name="lib_httpclient_China_Unicom">China Unicom</string>
+	<string name="lib_httpclient_China_Telecom">China Telecom</string>
+	<string name="lib_httpclient_unknown">unknown</string>
+	<string name="lib_httpclient_error">error</string>
+	<string name="lib_httpclient_no_error">freedom from error</string>
+	<string name="lib_httpclient_unknown_error">unknown error</string>
+	<string name="lib_httpclient_no_network">No network</string>
+	<string name="lib_httpclient_network_error">network error</string>
+	<string name="lib_httpclient_certificate_validation_exception">Certificate validation exception</string>
+	<string name="lib_httpclient_connection_timed_out">connection timed out</string>
+	<string name="lib_httpclient_connection_analysis_exception">Parsing exception</string>
+	<string name="lib_httpclient_login_expiration">Login expired, please login again</string>
+	<string name="lib_httpclient_curr_account_logged_in_other_devices">The current account has been logged in on other devices</string>
+	<string name="lib_httpclient_normal">normal</string>
+	<string name="lib_httpclient_fail">fail</string>
+	<string name="lib_httpclient_dealing">Processing</string>
+	<string name="lib_httpclient_initialization">initialization</string>
+	<string name="lib_httpclient_cancel">cancel</string>
+
+</resources>

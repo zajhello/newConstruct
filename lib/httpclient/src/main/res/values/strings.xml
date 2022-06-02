@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="lib_httpclient_male">男</string>
+    <string name="lib_httpclient_female">女</string>
+    <string name="lib_httpclient_secrecy">保密</string>
+
+    <string name="lib_httpclient_China_Mobile">中国移动</string>
+    <string name="lib_httpclient_China_Unicom">中国联通</string>
+    <string name="lib_httpclient_China_Telecom">中国电信</string>
+
+    <string name="lib_httpclient_unknown">未知</string>
+    <string name="lib_httpclient_error">错误</string>
+    <string name="lib_httpclient_no_error">没有错误</string>
+    <string name="lib_httpclient_unknown_error">未知错误</string>
+
+    <string name="lib_httpclient_no_network">无网络</string>
+    <string name="lib_httpclient_network_error">网络错误</string>
+    <string name="lib_httpclient_certificate_validation_exception">证书验证异常</string>
+    <string name="lib_httpclient_connection_timed_out">连接超时</string>
+    <string name="lib_httpclient_connection_analysis_exception">解析异常</string>
+
+    <string name="lib_httpclient_login_expiration">登录过期，请重新登录</string>
+    <string name="lib_httpclient_curr_account_logged_in_other_devices">当前账号已在其他设备登录</string>
+
+    <string name="lib_httpclient_normal">正常</string>
+    <string name="lib_httpclient_fail">失败</string>
+    <string name="lib_httpclient_dealing">处理中</string>
+    <string name="lib_httpclient_initialization">初始化</string>
+    <string name="lib_httpclient_cancel">取消</string>
+
+</resources>
